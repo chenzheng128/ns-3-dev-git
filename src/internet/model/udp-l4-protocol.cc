@@ -159,6 +159,9 @@ UdpL4Protocol::DoDispose (void)
   IpL4Protocol::DoDispose ();
 }
 
+//  find . -name '*.cc' | xargs grep CreateSocket | grep udp
+// CreateSocket () 实现
+
 Ptr<Socket>
 UdpL4Protocol::CreateSocket (void)
 {

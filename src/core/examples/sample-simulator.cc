@@ -25,6 +25,10 @@
 #include "ns3/double.h"
 #include "ns3/random-variable-stream.h"
 
+// for config
+#include "ns3/config.h"
+#include "ns3/boolean.h"
+
 /**
  * \file
  * \ingroup simulator
@@ -99,6 +103,9 @@ int main (int argc, char *argv[])
   cmd.Parse (argc, argv);
 
   MyModel model;
+  // 在 10 - 20 之间取一个随机变量
+  // 通过命令 (3中方法 via sample-random-vairable.cc 可以 改变随机值
+  // NS_GLOBAL_VALUE="RngRun=2" ./waf --run sample-simulator
   Ptr<UniformRandomVariable> v = CreateObject<UniformRandomVariable> ();
   v->SetAttribute ("Min", DoubleValue (10));
   v->SetAttribute ("Max", DoubleValue (20));
@@ -107,6 +114,7 @@ int main (int argc, char *argv[])
 
   Simulator::Schedule (Seconds (v->GetValue ()), &RandomFunction);
 
+  // 这个事件被 Cancel， 因而不会执行
   EventId id = Simulator::Schedule (Seconds (30.0), &CancelledEvent);
   Simulator::Cancel (id);
 

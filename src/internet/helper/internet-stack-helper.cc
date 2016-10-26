@@ -288,6 +288,7 @@ InternetStackHelper::CreateAndAggregateObjectFromTypeId (Ptr<Node> node, const s
   node->AggregateObject (protocol);
 }
 
+// Helper 的 Install() 函数中中会执行一些低级的 Api
 void
 InternetStackHelper::Install (Ptr<Node> node) const
 {

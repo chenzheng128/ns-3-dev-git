@@ -417,6 +417,7 @@ UdpSocketImpl::Send (Ptr<Packet> p, uint32_t flags)
   return DoSend (p);
 }
 
+// UDP Socket 发送实现 Bind (), SenTo()
 int 
 UdpSocketImpl::DoSend (Ptr<Packet> p)
 {
@@ -792,6 +793,8 @@ UdpSocketImpl::GetTxAvailable (void) const
   // the maximum size of an IP datagram (65535 bytes - headers).
   return MAX_IPV4_UDP_DATAGRAM_SIZE;
 }
+
+// 发送数据
 
 int 
 UdpSocketImpl::SendTo (Ptr<Packet> p, uint32_t flags, const Address &address)

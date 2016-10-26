@@ -39,6 +39,9 @@ UdpSocketFactoryImpl::SetUdp (Ptr<UdpL4Protocol> udp)
   m_udp = udp;
 }
 
+// find . -name '*.cc' | xargs grep CreateSocket | grep udps
+// CreateSocket()
+
 Ptr<Socket>
 UdpSocketFactoryImpl::CreateSocket (void)
 {
