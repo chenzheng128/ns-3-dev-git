@@ -26,6 +26,9 @@
 #include "ns3/log.h"
 #include <cmath>
 
+
+// file:///Users/chen/coding/ns-3-dev-git/doc/html/classns3_1_1_random_walk2d_mobility_model.html
+
 namespace ns3 {
 
 NS_LOG_COMPONENT_DEFINE ("RandomWalk2d");

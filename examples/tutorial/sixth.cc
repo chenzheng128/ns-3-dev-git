@@ -231,6 +231,7 @@ main (int argc, char *argv[])
   app->SetStartTime (Seconds (1.));
   app->SetStopTime (Seconds (20.));
 
+  // 使用 stream 来写入文件， 相对于 fifth.cc
   AsciiTraceHelper asciiTraceHelper;
   Ptr<OutputStreamWrapper> stream = asciiTraceHelper.CreateFileStream ("sixth.cwnd");
   ns3TcpSocket->TraceConnectWithoutContext ("CongestionWindow", MakeBoundCallback (&CwndChange, stream));

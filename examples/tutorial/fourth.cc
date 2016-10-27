@@ -36,7 +36,7 @@ public:
       .SetParent<Object> ()
       .SetGroupName ("Tutorial")
       .AddConstructor<MyObject> ()
-      .AddTraceSource ("MyInteger",
+      .AddTraceSource ("MyInteger",   // Source
                        "An integer value to trace.",
                        MakeTraceSourceAccessor (&MyObject::m_myInt),
                        "ns3::TracedValueCallback::Int32")
@@ -48,6 +48,7 @@ public:
   TracedValue<int32_t> m_myInt;
 };
 
+// Sink
 void
 IntTrace (int32_t oldValue, int32_t newValue)
 {
@@ -58,6 +59,7 @@ int
 main (int argc, char *argv[])
 {
   Ptr<MyObject> myObject = CreateObject<MyObject> ();
+  // Connection
   myObject->TraceConnectWithoutContext ("MyInteger", MakeCallback (&IntTrace));
 
   myObject->m_myInt = 1234;

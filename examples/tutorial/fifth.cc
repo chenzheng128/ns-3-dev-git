@@ -75,7 +75,7 @@ private:
   void ScheduleTx (void);
   void SendPacket (void);
 
-  Ptr<Socket>     m_socket;
+  Ptr<Socket>     m_socket; // 在配置阶段初始化 socket 便于 trace connect
   Address         m_peer;
   uint32_t        m_packetSize;
   uint32_t        m_nPackets;
@@ -102,6 +102,14 @@ MyApp::~MyApp()
   m_socket = 0;
 }
 
+/*
+ * 调用顺序
+1. StartApplication calls SendPacket
+2. SendPacket calls ScheduleTx
+3. ScheduleTx set up next SendPacket call
+...
+Until StopApplicatio
+ */
 void
 MyApp::Setup (Ptr<Socket> socket, Address address, uint32_t packetSize, uint32_t nPackets, DataRate dataRate)
 {
@@ -207,6 +215,7 @@ main (int argc, char *argv[])
   sinkApps.Stop (Seconds (20.));
 
   Ptr<Socket> ns3TcpSocket = Socket::CreateSocket (nodes.Get (0), TcpSocketFactory::GetTypeId ());
+  // trace cwnd
   ns3TcpSocket->TraceConnectWithoutContext ("CongestionWindow", MakeCallback (&CwndChange));
 
   Ptr<MyApp> app = CreateObject<MyApp> ();
