@@ -163,7 +163,11 @@ Experiment::Run (const WifiHelper &wifi, const YansWifiPhyHelper &wifiPhy,
 
   return m_pktsTotal;
 }
-
+/**
+ * 运行方法
+ * ./waf --run wifi-clear-channel-cmu
+ * gnuplot clear-channel.plt
+ */
 int main (int argc, char *argv[])
 {
   std::ofstream outfile ("clear-channel.plt");
@@ -180,11 +184,13 @@ int main (int argc, char *argv[])
   CommandLine cmd;
   cmd.Parse (argc, argv);
 
+  // 定义目标文件名。 需要命令行执行以生成 eps 图形 $ gnuplot clear-channel.plt
   Gnuplot gnuplot = Gnuplot ("clear-channel.eps");
 
   for (uint32_t i = 0; i < modes.size (); i++)
     {
       std::cout << modes[i] << std::endl;
+      // one dataset per mode
       Gnuplot2dDataset dataset (modes[i]);
 
       for (double rss = -102.0; rss <= -80.0; rss += 0.5)
@@ -217,9 +223,10 @@ int main (int argc, char *argv[])
           wifiPhy.Set ("RxGain", DoubleValue (0) );
           wifiPhy.Set ("RxNoiseFigure", DoubleValue (7) );
           uint32_t pktsRecvd = experiment.Run (wifi, wifiPhy, wifiMac, wifiChannel);
+          // Add data to dataset
           dataset.Add (rss, pktsRecvd);
         }
-
+      // Add dataset to plot
       gnuplot.AddDataset (dataset);
     }
   gnuplot.SetTerminal ("postscript eps color enh \"Times-BoldItalic\"");

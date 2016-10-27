@@ -10,13 +10,14 @@
 # Modules that depend on the listed modules will be enabled also.
 #
 # All modules can be enabled by choosing 'all_modules'.
-# modules_enabled = ['all_modules']
+modules_enabled = ['all_modules']
 
 #
 # 简化调试模块， 仅打开 myfirst.cc 中需用的 tcp 模块
 # ./waf configure && ./waf --run "myfirst --nPackets=4"
-
-modules_enabled = ['core', 'network', 'csma', 'internet', 'point-to-point', 'applications', 'mobility']
+# traning2016 required: 'flow-monitor', 'wifi', 'netanim', 'point-to-point-layout'
+# wifi 在 mac 下暂时编译不过去， 跳过
+# modules_enabled = ['core', 'network', 'csma', 'internet', 'point-to-point', 'applications', 'mobility']
 
 # mythird 还需要 wifi 模块， 这里没有加入。 所以跳过 mythird.cc
 #../scratch/mythird.cc:21:10: fatal error: 'ns3/wifi-module.h' file not found
