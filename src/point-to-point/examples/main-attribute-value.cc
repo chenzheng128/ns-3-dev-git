@@ -52,9 +52,9 @@ main (int argc, char *argv[])
   // 
   // Here, we set it to 80 packets.  We could use one of two value types:
   // a string-based value or a UintegerValue value
-  Config::SetDefault ("ns3::DropTailQueue::MaxPackets", StringValue ("80"));
+  // Config::SetDefault ("ns3::DropTailQueue::MaxPackets", StringValue ("80"));
   // The below function call is redundant
-  Config::SetDefault ("ns3::DropTailQueue::MaxPackets", UintegerValue (80));
+  // Config::SetDefault ("ns3::DropTailQueue::MaxPackets", UintegerValue (80));
 
   // Allow the user to override any of the defaults and the above
   // SetDefaults() at run-time, via command-line arguments
