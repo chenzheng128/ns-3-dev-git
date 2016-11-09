@@ -150,6 +150,7 @@ def build(bld):
         'model/tcp-vegas.cc',
         'model/tcp-congestion-ops.cc',
         'model/tcp-westwood.cc',
+        'model/tcp-myalg.cc', # tcp my algorithm
         'model/tcp-scalable.cc', 
         'model/tcp-veno.cc',
         'model/tcp-bic.cc',
@@ -367,6 +368,7 @@ def build(bld):
         'model/tcp-vegas.h',
         'model/tcp-congestion-ops.h',
         'model/tcp-westwood.h',
+        'model/tcp-myalg.h',  # tcp my algorithm 
         'model/tcp-scalable.h',
         'model/tcp-veno.h',
         'model/tcp-bic.h',
