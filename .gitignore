@@ -35,3 +35,17 @@ TAGS
 
 build-dir/
 build/
+
+# ignore eclipse and idea files
+.externalToolBuilders/
+.settings/
+.cproject
+.project
+.idea/
+.python-version
+/Default/
+/*.png
+/*.txt
+/*.data
+/*-ascii
+scratch

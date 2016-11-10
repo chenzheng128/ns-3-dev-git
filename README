@@ -1,3 +1,8 @@
+# CUC
+代码运行需引入外部scratch目录: `ln -s xxx/scratch . `
+
+
+# Original README
 
     The Network Simulator, Version 3
     --------------------------------
