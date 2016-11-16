@@ -49,3 +49,4 @@ build/
 /*.data
 /*-ascii
 scratch
+statistics/
