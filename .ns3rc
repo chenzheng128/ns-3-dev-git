@@ -1,0 +1,18 @@
+#coding:utf-8
+#! /usr/bin/env python
+
+# A list of the modules that will be enabled when ns-3 is run.
+# Modules that depend on the listed modules will be enabled also.
+#
+# All modules can be enabled by choosing 'all_modules'.
+# modules_enabled = ['all_modules']
+
+# 仅使用部分模块, 但好像.ns3rc这个文件未起作用
+modules_enabled = ['core', 'applications', 'config-store', 'csma', 'csma-layout', 'flow-monitor',
+'internet', 'nix-vector-routing', 'point-to-point', 'point-to-point-layout', 'test']
+
+# Set this equal to true if you want examples to be run.
+examples_enabled = True
+
+# Set this equal to true if you want tests to be run.
+tests_enabled = True
