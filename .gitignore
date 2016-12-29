@@ -35,3 +35,20 @@ TAGS
 
 build-dir/
 build/
+
+# ignore eclipse and idea files
+.externalToolBuilders/
+.settings/
+.cproject
+.project
+.idea/
+.python-version
+/Default/
+/*.png
+/*.txt
+/*.data
+/*.xml
+/*-ascii
+/init_chen_env.sh
+scratch
+statistics/
