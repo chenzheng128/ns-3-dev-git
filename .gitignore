@@ -47,6 +47,8 @@ build/
 /*.png
 /*.txt
 /*.data
+/*.xml
 /*-ascii
+/init_chen_env.sh
 scratch
 statistics/
